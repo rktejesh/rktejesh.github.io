@@ -6,6 +6,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import AppRoutes from "./routes";
+import ReactGA from 'react-ga';
 import Headermain from "../header";
 import AnimatedCursor from "react-animated-cursor";
 import "./App.css";
@@ -18,8 +19,10 @@ function _ScrollToTop(props) {
   return props.children;
 }
 const ScrollToTop = withRouter(_ScrollToTop);
+const TRACKING_ID = "UA-199297566-1"; // OUR_TRACKING_ID
 
 export default function App() {
+  ReactGA.initialize(TRACKING_ID);
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="cursor__dot">

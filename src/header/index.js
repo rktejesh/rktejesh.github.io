@@ -4,6 +4,7 @@ import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { logotext ,socialprofils } from "../content_option";
 import Themetoggle from "../components/themetoggle";
+import userAnalyticsEventTracker from "../userAnalyticsTracker";
 
 const Headermain = () => {
   const [isActive, setActive] = useState("false");
@@ -13,7 +14,9 @@ const Headermain = () => {
     document.body.classList.toggle("ovhidden");
   };
 
-  return (
+  const gaEventTracker = userAnalyticsEventTracker('Contact us');
+
+  return ( 
     <>
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
@@ -21,7 +24,7 @@ const Headermain = () => {
             {logotext}
           </Link>
           <div className="d-flex align-items-center">
-          <a className="navbar-brand nav_ac" href="https://shorturl.at/enAX8" target="_blank" rel="noreferrer">
+          <a className="navbar-brand nav_ac" href="https://shorturl.at/enAX8" target="_blank" rel="noreferrer" onClick={()=>gaEventTracker('resume')}>
             Resume
           </a>
           <Themetoggle />
