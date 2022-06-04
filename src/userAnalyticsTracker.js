@@ -6,4 +6,4 @@ const userAnalyticsEventTracker = (category="Portfolio category") => {
   }
   return eventTracker;
 }
-export default useAnalyticsEventTracker;
+export default userAnalyticsEventTracker;
